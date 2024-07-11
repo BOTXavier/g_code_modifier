@@ -1,4 +1,4 @@
-# Définir le motif des layer's height
+# DEfine the patterns of layer's height
 layer_height_pattern = {
     0: 0.100,
     1: 0.200,
@@ -31,25 +31,25 @@ def modify_gcode_line(line, new_value):
     return ' '.join(parts)
 
 
-def extract_z_origin_value(input_file):
-    """
-    This function aims to find the first value of Z in order to start with the accurate value
-    """
-    with open(input_file, 'r') as file:
-        process_began = False
-        for line in file:
-            if line.startswith(';LAYER:0'):
-                process_began = True
+# def extract_z_origin_value(input_file):
+#     """
+#     This function aims to find the first value of Z in order to start with the accurate value
+#     """
+#     with open(input_file, 'r') as file:
+#         process_began = False
+#         for line in file:
+#             if line.startswith(';LAYER:0'):
+#                 process_began = True
             
-            if process_began:
-                if ' Z' in line:  # ' Z' to ensure we're finding Z as a standalone command
-                    parts = line.split()
-                    for part in parts:
-                        if part.startswith('Z'):
-                            z_value = float(part[1:])  # Extract the numeric part of Z
-                            #print(z_value)
-                            return z_value
-    return None  # If no Z value is found
+#             if process_began:
+#                 if ' Z' in line:  # ' Z' to ensure we're finding Z as a standalone command
+#                     parts = line.split()
+#                     for part in parts:
+#                         if part.startswith('Z'):
+#                             z_value = float(part[1:])  # Extract the numeric part of Z
+#                             #print(z_value)
+#                             return z_value
+#     return None  # If no Z value is found
 
 
 #We open the gcode
