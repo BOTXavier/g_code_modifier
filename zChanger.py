@@ -64,12 +64,20 @@ def modify_gcode_line(line, new_value):
 
 
 
-def write_new_code(output_file, lines):
+def write_new_code(output_file, lines,flowrate_change_on=False):
     current_layer = 0 
     current_Z = 0 # extract_z_origin_value(input_file)
     Z_found = False
+    new_layer = False
     with open(output_file, 'w') as out_file:
         for line in lines:
+
+            
+            if  flowrate_change_on:
+                if line.startswith(';LAYER'): # The following line's where we have to change z's value.
+                    new_layer = True
+
+            #this block find the Z value and changes it
 
             if Z_found:
                 new_z_value = current_Z + layer_height_pattern[(current_layer) % max_nb_pattern]
@@ -80,9 +88,17 @@ def write_new_code(output_file, lines):
             else:
                 out_file.write(line)
 
+            if new_layer: #we write the flow rate change command at the begining of the layer
+                out_file.write( f"{'M221 S'}{layer_flow_pattern[(current_layer) % max_nb_pattern]}" + '\n')
+                new_layer = False
+
             if line.startswith(';MESH:NONMESH'): # The following line's where we have to change z's value.
                 Z_found = True
                 current_layer += 1
+
+            
+    print("Z changed successfully")
+                    
 
 
 if __name__ == "__main__":    
@@ -91,3 +107,5 @@ if __name__ == "__main__":
         code = file.readlines()
 
     write_new_code(output_file,code)
+   
+    
