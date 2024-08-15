@@ -1,4 +1,4 @@
-# Gcodes Modifyer
+# Gcodes Modifier
 
 ## Introduction
 
