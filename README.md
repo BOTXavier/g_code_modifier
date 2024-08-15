@@ -13,10 +13,10 @@ As researchers, this allows us to study the wetting properties of such structure
 
 
 **Step 1:** 
-Place your G-code file in the **same directory as the script**.
+Place your G-code file in the **same directory as the `zChanger` script**.
 
 **Step 2:** 
-Open the script and locate the line `input_file = 'test.gcode'`. Replace 'test.gcode' with the name of your G-code file.
+Open the  `zChanger` script and locate the line `input_file = 'test.gcode'`. Replace 'test.gcode' with the name of your G-code file.
 
 Next, locate `layer_height_pattern` and `layer_flow_pattern`. Insert the desired pattern as follows:
 
