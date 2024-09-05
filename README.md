@@ -22,7 +22,16 @@ Open the  `zChanger` script and locate the line `input_file = 'test.gcode'`. Rep
 Next, locate `layer_height_pattern` and `layer_flow_pattern`. Insert the desired pattern as follows:
 
   - For layer height, **the unit is in mm**. Ensure it stays between 0.05mm and 0.32mm.
-  - For flow rate, **use percentages**. Ensure it stays between 80% and 200%.
+  - For flow rate, **use percentages**.
+
+We provide the following advised height / flow rate combination. If these values are not respected, you may encounter holes between the layers pf the samples.
+50µm / 100%
+100µm / 125%
+150µm / 180%
+200µm / 270%
+250µm / 345%
+300µm / 470%
+
 
 Before running the script, verify that the number of layers in the height pattern matches the flow rate pattern. The script will alert you if there is a mismatch.
 
