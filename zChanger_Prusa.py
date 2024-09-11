@@ -1,4 +1,4 @@
-input_file = 'pdms_gradient.gcode'              # Name of the gfile you want to modify
+input_file = 'test.gcode'              # Name of the gfile you want to modify
 output_file = 'Modified_' + input_file     # name of the gfile you want to get after the process.
 
 
@@ -13,6 +13,26 @@ layer_flow_pattern = {
 
 }
 
+# for i in range(36):
+#     if i < 6: 
+#         layer_height_pattern[i] = 0.05
+#         layer_flow_pattern[i] = 85
+#     elif i < 12:
+#         layer_height_pattern[i] = 0.100
+#         layer_flow_pattern[i] = 130
+#     elif i < 18:
+#         layer_height_pattern[i] = 0.150
+#         layer_flow_pattern[i] = 180
+#     elif i < 24:
+#         layer_height_pattern[i] = 0.200
+#         layer_flow_pattern[i] = 190
+#     elif i < 30:
+#         layer_height_pattern[i] = 0.250
+#         layer_flow_pattern[i] = 210
+#     elif i < 36:
+#         layer_height_pattern[i] = 0.300
+#         layer_flow_pattern[i] = 210
+
 for i in range(140):
     if i < 100: 
         layer_height_pattern[i] = 0.05
@@ -22,7 +42,8 @@ for i in range(140):
         layer_flow_pattern[i] = 185
 
 
-#print(layer_height_pattern)
+print(layer_height_pattern)
+print(layer_flow_pattern)
 max_nb_pattern = len(layer_height_pattern)
 
 
